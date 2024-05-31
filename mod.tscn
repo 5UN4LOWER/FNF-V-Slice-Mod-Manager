@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cds736qny8vlu"]
+
+[ext_resource type="Theme" uid="uid://vielbcv4142l" path="res://fonts/modtheme.tres" id="1_8b0wg"]
+[ext_resource type="Script" path="res://scripts/mod.gd" id="2_oc8ja"]
+[ext_resource type="Texture2D" uid="uid://cqwjuhnny65oq" path="res://images/check.png" id="3_4bfb5"]
+[ext_resource type="Texture2D" uid="uid://p8yp1hgrg1pq" path="res://images/uncheck.png" id="4_adbwo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jqf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4bfb5")
+}],
+"loop": true,
+"name": &"checked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_adbwo")
+}],
+"loop": true,
+"name": &"unchecked",
+"speed": 5.0
+}]
+
+[node name="Mod" type="Button"]
+custom_minimum_size = Vector2(0, 88)
+offset_right = 460.0
+offset_bottom = 88.0
+focus_mode = 0
+theme = ExtResource("1_8b0wg")
+text = "ModName"
+alignment = 0
+script = ExtResource("2_oc8ja")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(39, 40)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_0jqf0")
+animation = &"checked"
+
+[connection signal="button_down" from="." to="." method="toggle"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

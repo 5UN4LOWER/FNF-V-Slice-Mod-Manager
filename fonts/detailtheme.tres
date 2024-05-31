@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://tr1wtgfxo17j"]
+
+[ext_resource type="FontFile" uid="uid://cdtxnts505bl5" path="res://fonts/PhantomMuff Full Letters 1.1.5.ttf" id="1_bfm1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxv7h"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h47u2"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuw0i"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jobgb"]
+content_margin_left = 70.0
+bg_color = Color(0.122252, 0.122252, 0.122252, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_size = 1
+shadow_offset = Vector2(5.32, 5.61)
+
+[resource]
+default_font = ExtResource("1_bfm1w")
+default_font_size = 26
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.427451, 0.592157, 0.862745, 1)
+Button/font_sizes/font_size = 26
+Button/styles/hover = SubResource("StyleBoxFlat_vxv7h")
+Button/styles/normal = SubResource("StyleBoxFlat_h47u2")
+Button/styles/pressed = SubResource("StyleBoxFlat_fuw0i")
+Label/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Label/font_sizes/font_size = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_jobgb")

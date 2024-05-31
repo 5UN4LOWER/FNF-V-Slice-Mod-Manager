@@ -1,0 +1,1 @@
+% open -a Funkin.app
