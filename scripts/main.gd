@@ -1,5 +1,9 @@
 extends Control
 
+# NOTE FOR JACKIE, NOTE FOR JACKIE, I REPEAT NOTE FOR JACKIE
+# YOU NEED TO DO ANY COMPLICATED FOR WHEN YOU GET TO WORK ON REORDERING MODS, GODOT HAS A BUILT IN FUNCTION FOR IT
+# move_child(get_child(index), target_index)
+
 # Data
 var mods_folder = ''
 var all_mods = []
@@ -7,7 +11,7 @@ const save_path = "user://path.dat"
 
 # Nodes
 @onready var fileDialog = $FileDialog
-@onready var capsule_scene = preload("res://mod.tscn")
+@onready var capsule_scene = preload("res://scenes/mod.tscn")
 @onready var capsule_container = $ScrollContainer/VBoxContainer
 
 func _ready():
@@ -33,10 +37,8 @@ func reload_mods():
 	
 	for mod_folder in DirAccess.open(mods_folder).get_directories():
 		spawn_capsule(mod_folder.get_basename())
-	
-	capsule_container.position.x = 10
-	var enter = create_tween().tween_property(capsule_container, "position", Vector2(27, capsule_container.position.y), 1)
-	enter.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	# Disabled due to it being fucked up
+	# var enter = create_tween().tween_property(capsule_container, "position", Vector2(27, capsule_container.position.y), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 # When the user selects a mod directory
 func onModFolderSelected(dir):
@@ -56,6 +58,10 @@ func _on_file_dialog_canceled():
 func configButton():
 	fileDialog.visible = true
 
+var cmd = false
+func _on_cmd_button_toggled(toggled_on):
+	cmd = toggled_on
+
 # When the user presses the launch button
 func onLaunchPressed():
 	var drive = mods_folder.get_base_dir().replace("\\", "/").split("/")[0]
@@ -63,7 +69,6 @@ func onLaunchPressed():
 		mods_folder.get_base_dir() + "/launch.bat",
 		OS.get_executable_path().get_base_dir() + "/Funkin.app"
 	]
-	var cmd = false
 	
 	if OS.get_name() == "Windows":
 		OS.create_process(launch_files[0], [drive, mods_folder.get_base_dir()], cmd)

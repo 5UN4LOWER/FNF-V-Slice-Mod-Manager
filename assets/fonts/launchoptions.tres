@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://df5povv0f3g0p"]
+
+[ext_resource type="FontFile" uid="uid://biaiwy3gy3g38" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="1_e4eom"]
+
+[resource]
+default_font = ExtResource("1_e4eom")
+default_font_size = 30
+CheckButton/styles/normal = null

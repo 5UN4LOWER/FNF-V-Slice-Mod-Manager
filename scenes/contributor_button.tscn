@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8s4d0xkcxhnp"]
 
-[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://fonts/detailtheme.tres" id="1_o23mj"]
+[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="1_o23mj"]
 [ext_resource type="Script" path="res://scripts/contributor_button.gd" id="2_lqbdx"]
 
 [node name="ContributorButton" type="Button"]

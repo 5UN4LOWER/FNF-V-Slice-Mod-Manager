@@ -4,7 +4,23 @@ var current_meta:Dictionary = {}
 var current_image:Texture2D
 var folder_path = ''
 
-var cont_button_scene = preload("res://contributor_button.tscn")
+# Main Nodes
+@onready var nameDetail = $Top/MainPanel/Name
+@onready var descDetail = $Top/MainPanel/Description
+@onready var verDetail = $Top/MainPanel/Version
+
+# Icon Nodes
+@onready var icon = $Top/Image/TextureRect
+
+# Contributors
+@onready var list = $ContributorPanel/MarginContainer/Cont_Container
+@onready var thewholedamnpanel = $ContributorPanel
+
+var cont_button_scene = preload("res://scenes/contributor_button.tscn")
+
+func _ready():
+	# Setting positions YAYYYYYY
+	pass
 
 func _on_button_button_down():
 	if current_meta.homepage != "":
@@ -13,31 +29,32 @@ func _on_button_button_down():
 func switch_meta(metadata, path):
 	current_meta = metadata
 	folder_path = path
+	
 	# Main Details
 	if current_meta.has("title"):
-		$MainDetails/Name.text = current_meta.title
+		nameDetail.text = current_meta.title
 	else:
-		$MainDetails/Name.text = "No Title"
+		nameDetail.text = "No Title"
 	if current_meta.has("desc"):
-		$MainDetails/Description.text = current_meta.desc
+		descDetail.text = current_meta.desc
 	else:
-		$MainDetails/Description.text = "No description"
+		descDetail.text = "No description"
 	if current_meta.has("version"):
-		$MainDetails/Version.text = current_meta.version
+		verDetail.text = current_meta.version
 	else:
-		$MainDetails/Version.text = "1.0.0"
+		verDetail.text = "1.0.0"
 	
 	# Icon
 	if FileAccess.file_exists(folder_path + "/_polymod_icon.png"):
-		$Image/TextureRect.texture = ImageTexture.create_from_image(Image.load_from_file(folder_path + "/_polymod_icon.png"))
+		icon.texture = ImageTexture.create_from_image(Image.load_from_file(folder_path + "/_polymod_icon.png"))
 	else:
-		$Image/TextureRect.texture = load("res://images/icon_default.png")
+		icon.texture = load("res://assets/images/icon_default.png")
 	
 	# Contributors
 	if current_meta.contributors != []:
-		for child in $Contributors/Cont_Container.get_children():
+		for child in list.get_children():
 			child.queue_free()
-		$Contributors.visible = true
+		thewholedamnpanel.visible = true
 		for key in current_meta.contributors:
 			var contributorS = cont_button_scene.instantiate()
 		
@@ -56,6 +73,6 @@ func switch_meta(metadata, path):
 			else:
 				contributorS.url = ''
 			
-			$Contributors/Cont_Container.add_child(contributorS)
+			list.add_child(contributorS)
 	else:
-		$Contributors.visible = false
+		thewholedamnpanel.visible = false

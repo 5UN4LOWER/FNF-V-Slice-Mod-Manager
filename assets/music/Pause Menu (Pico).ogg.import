@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cm43wmnmi1tq"
+path="res://.godot/imported/Pause Menu (Pico).ogg-4d9f2ac8678b61a150f222692aba8598.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Pause Menu (Pico).ogg"
+dest_files=["res://.godot/imported/Pause Menu (Pico).ogg-4d9f2ac8678b61a150f222692aba8598.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

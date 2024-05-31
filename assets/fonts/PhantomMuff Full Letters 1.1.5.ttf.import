@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cdtxnts505bl5"
-path="res://.godot/imported/PhantomMuff Full Letters 1.1.5.ttf-be1b3c2cbe421f1c02f71dd393778fd5.fontdata"
+path="res://.godot/imported/PhantomMuff Full Letters 1.1.5.ttf-e569c6b3532ceab9de742103922b7db5.fontdata"
 
 [deps]
 
-source_file="res://fonts/PhantomMuff Full Letters 1.1.5.ttf"
-dest_files=["res://.godot/imported/PhantomMuff Full Letters 1.1.5.ttf-be1b3c2cbe421f1c02f71dd393778fd5.fontdata"]
+source_file="res://assets/fonts/PhantomMuff Full Letters 1.1.5.ttf"
+dest_files=["res://.godot/imported/PhantomMuff Full Letters 1.1.5.ttf-e569c6b3532ceab9de742103922b7db5.fontdata"]
 
 [params]
 

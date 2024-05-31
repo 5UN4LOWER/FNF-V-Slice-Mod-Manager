@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://biaiwy3gy3g38"
-path="res://.godot/imported/Phantomuff Difficult Font.ttf-f0b386a6fbb287ec419af0880d017371.fontdata"
+path="res://.godot/imported/Phantomuff Difficult Font.ttf-f31eb199829a3750ab44ed82620ae954.fontdata"
 
 [deps]
 
-source_file="res://fonts/Phantomuff Difficult Font.ttf"
-dest_files=["res://.godot/imported/Phantomuff Difficult Font.ttf-f0b386a6fbb287ec419af0880d017371.fontdata"]
+source_file="res://assets/fonts/Phantomuff Difficult Font.ttf"
+dest_files=["res://.godot/imported/Phantomuff Difficult Font.ttf-f31eb199829a3750ab44ed82620ae954.fontdata"]
 
 [params]
 
