@@ -1,14 +1,13 @@
 # FNF V Slice Mod Manager
 
 ## Purpose
-Made for mods that override base game's ui or songs.
+Made to enable and disable any mod at will, and put to use the unused polymod metadata features.
 
 ## Features:
 Displays every installed mod folder
 Enable and disable mods on a whim
-Adds mod metadata preview on the right (All supported data in template.zip)
+Adds mod metadata preview on the right
 Launch FNF straight from the manager (Windows only.... for now)
-PLEASE SUGGEST ANY FEATURES YOU WANT IN THE COMMENTS
 
 ## Installation:
 ### Windows:
