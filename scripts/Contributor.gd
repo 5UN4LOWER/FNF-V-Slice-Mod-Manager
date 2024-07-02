@@ -6,6 +6,8 @@ var url = ''
 
 func _process(_delta):
 	text = contributor_name + " - " + contributor_role
+	if url == '':
+		disabled = true
 
 func _on_button_down():
 	if url != '':

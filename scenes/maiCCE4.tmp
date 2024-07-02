@@ -1,31 +1,29 @@
-[gd_scene load_steps=32 format=3 uid="uid://dt7nws0xk3oh4"]
+[gd_scene load_steps=30 format=3 uid="uid://dt7nws0xk3oh4"]
 
-[ext_resource type="Script" path="res://scripts/Main.gd" id="1_xk177"]
-[ext_resource type="Script" path="res://scripts/BackgroundSwitcher.gd" id="2_05aif"]
-[ext_resource type="Texture2D" uid="uid://bfs4t8atucj1k" path="res://assets/images/bgs/moon.png" id="3_6tl2u"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_8rvfn"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_khjar"]
-[ext_resource type="Script" path="res://scripts/DisplayField.gd" id="6_7hnkh"]
-[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="7_hvv80"]
-[ext_resource type="Texture2D" uid="uid://cah7ru0mp17bt" path="res://assets/images/icon_default.png" id="8_c4wuj"]
-[ext_resource type="Script" path="res://scripts/BottomButtons.gd" id="9_6u8lm"]
-[ext_resource type="Texture2D" uid="uid://bvhb4bvddtpfh" path="res://assets/images/mute.png" id="10_b7a6c"]
-[ext_resource type="Texture2D" uid="uid://delxoxdpaeghu" path="res://assets/images/sound.png" id="11_wycwo"]
-[ext_resource type="Texture2D" uid="uid://c4smu4hwpf7nr" path="res://assets/images/settings.png" id="12_6sqwa"]
-[ext_resource type="Texture2D" uid="uid://ddnb5shn8hc3u" path="res://assets/images/refresh.png" id="13_ecdoi"]
-[ext_resource type="FontFile" uid="uid://biaiwy3gy3g38" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="14_3elka"]
-[ext_resource type="Theme" uid="uid://df5povv0f3g0p" path="res://assets/fonts/launchoptions.tres" id="15_nopem"]
-[ext_resource type="Theme" uid="uid://cwgjbb6yq0kut" path="res://assets/fonts/popup.tres" id="16_4kllj"]
-[ext_resource type="AudioStream" uid="uid://cm43wmnmi1tq" path="res://assets/music/Pause Menu (Pico).ogg" id="17_l0l65"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_vv1de"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="3_83q40"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="4_8mk20"]
+[ext_resource type="Script" path="res://scripts/mod_details.gd" id="5_mabhk"]
+[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="6_ox8ln"]
+[ext_resource type="Texture2D" uid="uid://cah7ru0mp17bt" path="res://assets/images/icon_default.png" id="7_6e62x"]
+[ext_resource type="Script" path="res://scripts/buttonHandler.gd" id="8_fupiy"]
+[ext_resource type="Texture2D" uid="uid://c4smu4hwpf7nr" path="res://assets/images/settings.png" id="9_om60g"]
+[ext_resource type="Texture2D" uid="uid://ddnb5shn8hc3u" path="res://assets/images/refresh.png" id="10_gvvmd"]
+[ext_resource type="Texture2D" uid="uid://delxoxdpaeghu" path="res://assets/images/sound.png" id="10_onpau"]
+[ext_resource type="FontFile" uid="uid://biaiwy3gy3g38" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="11_m27sr"]
+[ext_resource type="Texture2D" uid="uid://bvhb4bvddtpfh" path="res://assets/images/mute.png" id="11_u4qas"]
+[ext_resource type="Theme" uid="uid://cwgjbb6yq0kut" path="res://assets/fonts/popup.tres" id="12_ksk7x"]
+[ext_resource type="Theme" uid="uid://df5povv0f3g0p" path="res://assets/fonts/launchoptions.tres" id="12_rtit3"]
+[ext_resource type="AudioStream" uid="uid://cm43wmnmi1tq" path="res://assets/music/Pause Menu (Pico).ogg" id="13_vwsgf"]
 
 [sub_resource type="Resource" id="Resource_hhayx"]
-script = ExtResource("5_khjar")
+script = ExtResource("4_8mk20")
 friction = 4.0
 minimum_velocity = 0.4
 rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_ml236"]
-script = ExtResource("5_khjar")
+script = ExtResource("4_8mk20")
 friction = 4.0
 minimum_velocity = 0.4
 rebound_strength = 7.0
@@ -47,7 +45,7 @@ content_margin_top = 34.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_b7a6c")
+"texture": ExtResource("11_u4qas")
 }],
 "loop": true,
 "name": &"mute",
@@ -55,7 +53,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_wycwo")
+"texture": ExtResource("10_onpau")
 }],
 "loop": true,
 "name": &"unmute",
@@ -79,17 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xk177")
-
-[node name="Backgrounds" type="Node2D" parent="."]
-script = ExtResource("2_05aif")
-bg_positions = [Vector2(633, 400)]
-
-[node name="Moon" type="Sprite2D" parent="Backgrounds"]
-modulate = Color(0.795629, 0.707907, 0.953911, 1)
-position = Vector2(633, 400)
-scale = Vector2(0.637303, 0.637303)
-texture = ExtResource("3_6tl2u")
+script = ExtResource("1_vv1de")
 
 [node name="TopBar" type="ColorRect" parent="."]
 layout_mode = 1
@@ -108,14 +96,14 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 37.0
-offset_top = 31.0
+offset_top = 61.0
 offset_right = 673.0
-offset_bottom = -12.0
+offset_bottom = -23.0
 grow_vertical = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
-script = ExtResource("4_8rvfn")
+script = ExtResource("3_83q40")
 wheel_scroll_damper = SubResource("Resource_hhayx")
 dragging_scroll_damper = SubResource("Resource_ml236")
 
@@ -134,7 +122,7 @@ offset_top = -20.72
 offset_right = 4.59998
 offset_bottom = 508.28
 grow_horizontal = 0
-script = ExtResource("6_7hnkh")
+script = ExtResource("5_mabhk")
 
 [node name="Top" type="HSplitContainer" parent="ModDetails"]
 layout_mode = 1
@@ -156,7 +144,7 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 178.0
 offset_bottom = 177.0
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 
 [node name="TextureRect" type="TextureRect" parent="ModDetails/Top/Image"]
 layout_mode = 2
@@ -164,18 +152,18 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 165.0
 offset_bottom = 162.0
-texture = ExtResource("8_c4wuj")
+texture = ExtResource("7_6e62x")
 expand_mode = 1
 
 [node name="MainPanel" type="PanelContainer" parent="ModDetails/Top"]
 layout_mode = 2
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 
 [node name="Name" type="Button" parent="ModDetails/Top/MainPanel"]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 text = "Mod Name"
 alignment = 2
 
@@ -183,7 +171,7 @@ alignment = 2
 custom_minimum_size = Vector2(255, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5r5d2")
 text = "Mod Description"
 horizontal_alignment = 2
@@ -192,7 +180,7 @@ autowrap_mode = 2
 [node name="Version" type="Label" parent="ModDetails/Top/MainPanel"]
 layout_mode = 2
 size_flags_vertical = 8
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 theme_override_font_sizes/font_size = 16
 text = "1.0.0"
 horizontal_alignment = 2
@@ -209,13 +197,13 @@ offset_top = -0.259018
 offset_right = 0.0379639
 offset_bottom = 260.741
 grow_horizontal = 0
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 
 [node name="Header" type="Label" parent="ModDetails/ContributorPanel"]
 custom_minimum_size = Vector2(311.71, 0)
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("7_hvv80")
+theme = ExtResource("6_ox8ln")
 theme_override_font_sizes/font_size = 26
 text = "Contributors:"
 horizontal_alignment = 2
@@ -250,7 +238,7 @@ offset_left = 772.0
 offset_top = 631.0
 offset_right = 1259.0
 offset_bottom = 679.0
-script = ExtResource("9_6u8lm")
+script = ExtResource("8_fupiy")
 
 [node name="MuteButton" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -290,7 +278,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_7ihs6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btkyi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s8rw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6n61s")
-icon = ExtResource("12_6sqwa")
+icon = ExtResource("9_om60g")
 flat = true
 expand_icon = true
 
@@ -308,7 +296,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_7ihs6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btkyi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s8rw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6n61s")
-icon = ExtResource("13_ecdoi")
+icon = ExtResource("10_gvvmd")
 flat = true
 expand_icon = true
 
@@ -320,7 +308,7 @@ offset_right = 482.0
 offset_bottom = 61.0
 theme_override_colors/font_color = Color(0.937255, 0.937255, 0.937255, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("14_3elka")
+theme_override_fonts/font = ExtResource("11_m27sr")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxEmpty_olriv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_g8hdh")
@@ -336,7 +324,7 @@ offset_top = -46.0
 offset_right = 474.0
 offset_bottom = -2.0
 focus_mode = 0
-theme = ExtResource("15_nopem")
+theme = ExtResource("12_rtit3")
 text = "Open CMD"
 alignment = 2
 
@@ -344,15 +332,14 @@ alignment = 2
 title = "Open a Directory"
 initial_position = 2
 size = Vector2i(458, 538)
-theme = ExtResource("16_4kllj")
+theme = ExtResource("12_ksk7x")
 ok_button_text = "Select Current Folder"
 dialog_hide_on_ok = true
 file_mode = 2
 access = 2
-use_native_dialog = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_l0l65")
+stream = ExtResource("13_vwsgf")
 volume_db = 10.0
 autoplay = true
 

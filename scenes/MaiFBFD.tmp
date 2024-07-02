@@ -83,7 +83,6 @@ script = ExtResource("1_xk177")
 
 [node name="Backgrounds" type="Node2D" parent="."]
 script = ExtResource("2_05aif")
-bg_positions = [Vector2(633, 400)]
 
 [node name="Moon" type="Sprite2D" parent="Backgrounds"]
 modulate = Color(0.795629, 0.707907, 0.953911, 1)
@@ -349,7 +348,6 @@ ok_button_text = "Select Current Folder"
 dialog_hide_on_ok = true
 file_mode = 2
 access = 2
-use_native_dialog = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_l0l65")

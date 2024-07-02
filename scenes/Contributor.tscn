@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8s4d0xkcxhnp"]
 
-[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="1_o23mj"]
-[ext_resource type="Script" path="res://scripts/contributor_button.gd" id="2_lqbdx"]
+[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="1_1shin"]
+[ext_resource type="Script" path="res://scripts/Contributor.gd" id="2_sckj6"]
 
 [node name="ContributorButton" type="Button"]
 offset_right = 178.0
 offset_bottom = 22.0
 focus_mode = 0
-theme = ExtResource("1_o23mj")
+theme = ExtResource("1_1shin")
 theme_override_font_sizes/font_size = 19
 text = "Contributor - Role"
 alignment = 2
-script = ExtResource("2_lqbdx")
+script = ExtResource("2_sckj6")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -16,7 +16,7 @@ var folder_path = ''
 @onready var list = $ContributorPanel/MarginContainer/Cont_Container
 @onready var thewholedamnpanel = $ContributorPanel
 
-var cont_button_scene = preload("res://scenes/contributor_button.tscn")
+var cont_button_scene = preload("res://scenes/Contributor.tscn")
 
 func _ready():
 	# Setting positions YAYYYYYY

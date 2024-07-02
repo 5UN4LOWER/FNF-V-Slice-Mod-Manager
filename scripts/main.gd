@@ -4,41 +4,39 @@ extends Control
 # YOU NEED TO DO ANY COMPLICATED FOR WHEN YOU GET TO WORK ON REORDERING MODS, GODOT HAS A BUILT IN FUNCTION FOR IT
 # move_child(get_child(index), target_index)
 
+const save_path = "res://settings.txt"
+
 # Data
 var mods_folder = ''
 var all_mods = []
-const save_path = "user://path.dat"
+var cmd = false
 
 # Nodes
 @onready var fileDialog = $FileDialog
-@onready var capsule_scene = preload("res://scenes/mod.tscn")
+@onready var capsule_scene = preload("res://scenes/Capsule.tscn")
 @onready var capsule_container = $ScrollContainer/VBoxContainer
 
 func _ready():
 	# Load the selected mod folder, if the user hasn't selected one yet, automatically open the file dialog
-	if FileAccess.file_exists(save_path):
-		mods_folder = FileAccess.open(save_path, FileAccess.READ).get_as_text()
 	if not FileAccess.file_exists(save_path):
 		fileDialog.visible = true
 	else:
+		mods_folder = FileAccess.open(save_path, FileAccess.READ).get_as_text()
 		fileDialog.visible = false
-		print("Current mod folder: " + mods_folder)
+		print("Current mod folder: " + mods_folder + str(all_mods))
 		reload_mods()
-	
-	print(all_mods)
 
-func _input(event):
-	if event.is_action_pressed("back"):
-		get_tree().quit
+func _process(_delta):
+	pass
 
 func reload_mods():
+	# Clears all current capsules
 	for capsule in capsule_container.get_children():
 		capsule.queue_free()
 	
+	# Spawns capsules
 	for mod_folder in DirAccess.open(mods_folder).get_directories():
 		spawn_capsule(mod_folder.get_basename())
-	# Disabled due to it being fucked up
-	# var enter = create_tween().tween_property(capsule_container, "position", Vector2(27, capsule_container.position.y), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 # When the user selects a mod directory
 func onModFolderSelected(dir):
@@ -58,7 +56,6 @@ func _on_file_dialog_canceled():
 func configButton():
 	fileDialog.visible = true
 
-var cmd = false
 func _on_cmd_button_toggled(toggled_on):
 	cmd = toggled_on
 
@@ -113,5 +110,3 @@ func spawn_capsule(folder_name):
 			else:
 				capsule.checkbox.play("unchecked")
 
-func _process(_delta):
-	$TextureRect.position = (-get_global_mouse_position() - Vector2(400, 2000)) / 50
