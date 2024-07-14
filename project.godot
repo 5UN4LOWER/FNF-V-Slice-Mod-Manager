@@ -13,7 +13,11 @@ config_version=5
 config/name="FNF V-Slice Mod Manager"
 config/description="A neat lil mod loader for vanilla fnf!"
 config/version="1.0.0"
+<<<<<<< Updated upstream
 run/main_scene="res://scenes/ui/main.tscn"
+=======
+run/main_scene="res://source/MainScene.tscn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -21,6 +25,7 @@ config/icon="res://assets/images/gfpixel.png"
 
 [audio]
 
+<<<<<<< Updated upstream
 buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [autoload]
@@ -28,6 +33,9 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 AudioManager="*res://scenes/backend/audio_manager.tscn"
 JsonManager="*res://scripts/backend/jsonManager.gd"
 Config="*res://scripts/backend/configData.gd"
+=======
+buses/default_bus_layout="res://config/default_bus_layout.tres"
+>>>>>>> Stashed changes
 
 [display]
 
@@ -43,7 +51,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/godot_sparrow/plugin.cfg")
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg")
 
 [input]
 

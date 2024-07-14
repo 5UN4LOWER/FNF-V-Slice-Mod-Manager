@@ -1,0 +1,371 @@
+[gd_scene load_steps=31 format=3 uid="uid://dt7nws0xk3oh4"]
+
+[ext_resource type="Script" path="res://source/MainScene.gd" id="1_jc5wl"]
+[ext_resource type="Texture2D" uid="uid://bfs4t8atucj1k" path="res://assets/images/bg.png" id="2_r3a20"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="3_itl6l"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="4_ieevt"]
+[ext_resource type="Script" path="res://source/DetailsPanel.gd" id="5_wgcq5"]
+[ext_resource type="Theme" uid="uid://tr1wtgfxo17j" path="res://assets/fonts/detailtheme.tres" id="6_cwk03"]
+[ext_resource type="Texture2D" uid="uid://cah7ru0mp17bt" path="res://assets/images/icon_default.png" id="7_gvtxt"]
+[ext_resource type="Script" path="res://source/buttonHandler.gd" id="8_qec7l"]
+[ext_resource type="Texture2D" uid="uid://bvhb4bvddtpfh" path="res://assets/images/mute.png" id="9_lgck1"]
+[ext_resource type="Texture2D" uid="uid://delxoxdpaeghu" path="res://assets/images/sound.png" id="10_csl0s"]
+[ext_resource type="Texture2D" uid="uid://c4smu4hwpf7nr" path="res://assets/images/settings.png" id="11_11nh5"]
+[ext_resource type="Texture2D" uid="uid://ddnb5shn8hc3u" path="res://assets/images/refresh.png" id="12_nvq8r"]
+[ext_resource type="FontFile" uid="uid://biaiwy3gy3g38" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="13_xqsli"]
+[ext_resource type="Theme" uid="uid://df5povv0f3g0p" path="res://assets/fonts/launchoptions.tres" id="14_32mwc"]
+[ext_resource type="Theme" uid="uid://cwgjbb6yq0kut" path="res://assets/fonts/popup.tres" id="15_0i0t5"]
+[ext_resource type="AudioStream" uid="uid://cm43wmnmi1tq" path="res://assets/music/Pause Menu (Pico).ogg" id="16_hs3fj"]
+
+[sub_resource type="Resource" id="Resource_hhayx"]
+script = ExtResource("4_ieevt")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_ml236"]
+script = ExtResource("4_ieevt")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5r5d2"]
+content_margin_top = 34.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esndm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ihs6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btkyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1s8rw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6n61s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w152d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_lgck1")
+}],
+"loop": true,
+"name": &"mute",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_csl0s")
+}],
+"loop": true,
+"name": &"unmute",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olriv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8hdh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oircl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_smpnt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u22ih"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jc5wl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.865149, 0.808157, 1, 1)
+layout_mode = 0
+offset_left = -40.0
+offset_top = -127.0
+offset_right = 2167.0
+offset_bottom = 1519.0
+scale = Vector2(0.609842, 0.609842)
+texture = ExtResource("2_r3a20")
+
+[node name="TopBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 8.0
+offset_bottom = 71.0
+grow_horizontal = 2
+rotation = -0.0141893
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 61.0
+offset_right = 673.0
+offset_bottom = -23.0
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("3_itl6l")
+wheel_scroll_damper = SubResource("Resource_hhayx")
+dragging_scroll_damper = SubResource("Resource_ml236")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ModDetails" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.955
+anchor_top = 0.101
+anchor_right = 0.955
+anchor_bottom = 0.101
+offset_left = -517.4
+offset_top = -20.72
+offset_right = 4.59998
+offset_bottom = 508.28
+grow_horizontal = 0
+script = ExtResource("5_wgcq5")
+
+[node name="Top" type="HSplitContainer" parent="ModDetails"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -453.0
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 184.0
+grow_horizontal = 0
+theme_override_constants/separation = 190
+dragger_visibility = 1
+
+[node name="Image" type="Control" parent="ModDetails/Top"]
+layout_mode = 2
+
+[node name="ImagePanel" type="PanelContainer" parent="ModDetails/Top/Image"]
+layout_mode = 0
+offset_right = 178.0
+offset_bottom = 177.0
+theme = ExtResource("6_cwk03")
+
+[node name="TextureRect" type="TextureRect" parent="ModDetails/Top/Image"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 165.0
+offset_bottom = 162.0
+texture = ExtResource("7_gvtxt")
+expand_mode = 1
+
+[node name="MainPanel" type="PanelContainer" parent="ModDetails/Top"]
+layout_mode = 2
+theme = ExtResource("6_cwk03")
+
+[node name="Name" type="Button" parent="ModDetails/Top/MainPanel"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("6_cwk03")
+text = "Mod Name"
+alignment = 2
+
+[node name="Description" type="Label" parent="ModDetails/Top/MainPanel"]
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("6_cwk03")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5r5d2")
+text = "Mod Description"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Version" type="Label" parent="ModDetails/Top/MainPanel"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("6_cwk03")
+theme_override_font_sizes/font_size = 11
+text = "1.0.0"
+horizontal_alignment = 2
+
+[node name="ContributorPanel" type="PanelContainer" parent="ModDetails"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.021
+anchor_top = 0.371
+anchor_right = 1.021
+anchor_bottom = 0.371
+offset_left = -331.962
+offset_top = -0.259018
+offset_right = 0.0379639
+offset_bottom = 260.741
+grow_horizontal = 0
+theme = ExtResource("6_cwk03")
+
+[node name="Header" type="Label" parent="ModDetails/ContributorPanel"]
+custom_minimum_size = Vector2(311.71, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("6_cwk03")
+theme_override_font_sizes/font_size = 26
+text = "Contributors:"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ModDetails/ContributorPanel"]
+layout_mode = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_bottom = -5
+
+[node name="Cont_Container" type="VBoxContainer" parent="ModDetails/ContributorPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="BottomBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -26.0
+offset_right = 11.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.0141893
+color = Color(0, 0, 0, 1)
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 772.0
+offset_top = 631.0
+offset_right = 1259.0
+offset_bottom = 679.0
+script = ExtResource("8_qec7l")
+
+[node name="MuteButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = -623.0
+offset_right = 506.0
+offset_bottom = -546.0
+scale = Vector2(0.570075, 0.570075)
+theme_override_colors/icon_normal_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esndm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ihs6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btkyi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s8rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6n61s")
+flat = true
+expand_icon = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Buttons/MuteButton"]
+position = Vector2(49.1165, 40.3456)
+scale = Vector2(1.83574, 1.83574)
+sprite_frames = SubResource("SpriteFrames_w152d")
+animation = &"unmute"
+autoplay = "unmute"
+
+[node name="ConfigButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 4.0
+offset_right = 154.0
+offset_bottom = 81.0
+scale = Vector2(0.570075, 0.570075)
+theme_override_colors/icon_normal_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esndm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ihs6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btkyi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s8rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6n61s")
+icon = ExtResource("11_11nh5")
+flat = true
+expand_icon = true
+
+[node name="RefreshButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 90.0
+offset_bottom = 81.0
+scale = Vector2(0.570075, 0.570075)
+theme_override_colors/icon_normal_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esndm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ihs6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btkyi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s8rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6n61s")
+icon = ExtResource("12_nvq8r")
+flat = true
+expand_icon = true
+
+[node name="Launch" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 141.0
+offset_top = -12.0
+offset_right = 482.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.937255, 0.937255, 0.937255, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("13_xqsli")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxEmpty_olriv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g8hdh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oircl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_smpnt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u22ih")
+text = "Launch FNF"
+
+[node name="CMDButton" type="CheckButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = -46.0
+offset_right = 474.0
+offset_bottom = -2.0
+focus_mode = 0
+theme = ExtResource("14_32mwc")
+text = "Open CMD"
+alignment = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+initial_position = 2
+size = Vector2i(458, 538)
+theme = ExtResource("15_0i0t5")
+ok_button_text = "Select Current Folder"
+dialog_hide_on_ok = true
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_hs3fj")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="button_down" from="ModDetails/Top/MainPanel/Name" to="ModDetails" method="_on_button_button_down"]
+[connection signal="button_down" from="Buttons/MuteButton" to="Buttons" method="_on_mute_button_button_down"]
+[connection signal="button_down" from="Buttons/ConfigButton" to="." method="configButton"]
+[connection signal="mouse_entered" from="Buttons/ConfigButton" to="Buttons" method="_on_config_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/ConfigButton" to="Buttons" method="_on_config_button_mouse_exited"]
+[connection signal="button_down" from="Buttons/RefreshButton" to="." method="refreshButton"]
+[connection signal="mouse_entered" from="Buttons/RefreshButton" to="Buttons" method="_on_refresh_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/RefreshButton" to="Buttons" method="_on_refresh_button_mouse_exited"]
+[connection signal="button_down" from="Buttons/Launch" to="." method="onLaunchPressed"]
+[connection signal="mouse_entered" from="Buttons/Launch" to="Buttons" method="_on_launch_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Launch" to="Buttons" method="_on_launch_mouse_exited"]
+[connection signal="toggled" from="Buttons/CMDButton" to="." method="_on_cmd_button_toggled"]
+[connection signal="canceled" from="FileDialog" to="." method="_on_file_dialog_canceled"]
+[connection signal="dir_selected" from="FileDialog" to="." method="onModFolderSelected"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://6ran6cpnucik"]
+
+[ext_resource type="Script" path="res://source/resources/ModData.gd" id="1_opcnl"]
+
+[resource]
+script = ExtResource("1_opcnl")
+metadata = {
+"contributors": [],
+"desc": "",
+"homepage": "",
+"title": "",
+"version": "1.0.0"
+}
