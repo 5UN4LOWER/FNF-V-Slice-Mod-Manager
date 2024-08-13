@@ -8,10 +8,6 @@ extends Control
 
 var muted = false
 
-func _ready():
-	if OS.get_name() == "macOS":
-		launch.disabled = true
-
 func _on_mute_button_button_down():
 	if not muted:
 		# Mute
@@ -35,22 +31,17 @@ func _on_config_button_mouse_exited():
 
 # Launch Button
 func _on_launch_mouse_entered():
-	if OS.get_name() == "macOS":
-		pass
-	else:
-		var scaleTween = create_tween().tween_property(launch, "scale", Vector2(1.08, 1.08), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		var posTween = create_tween().tween_property(launch, "position", Vector2(125, -18), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		
-		var cmdPosTween = create_tween().tween_property(cmd, "position", Vector2(275, -50), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	var scaleTween = create_tween().tween_property(launch, "scale", Vector2(1.08, 1.08), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	var posTween = create_tween().tween_property(launch, "position", Vector2(125, -18), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	var cmdPosTween = create_tween().tween_property(cmd, "position", Vector2(275, -50), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
 
 func _on_launch_mouse_exited():
-	if OS.get_name() == "macOS":
-		pass
-	else:
-		var scaleTween = create_tween().tween_property(launch, "scale", Vector2(1, 1), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		var posTween = create_tween().tween_property(launch, "position", Vector2(141, -12), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		
-		var cmdPosTween = create_tween().tween_property(cmd, "position", Vector2(275, -46), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	var scaleTween = create_tween().tween_property(launch, "scale", Vector2(1, 1), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	var posTween = create_tween().tween_property(launch, "position", Vector2(141, -12), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	var cmdPosTween = create_tween().tween_property(cmd, "position", Vector2(275, -46), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 # Refresh Button
 func _on_refresh_button_mouse_entered():
