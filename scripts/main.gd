@@ -64,7 +64,7 @@ func onLaunchPressed():
 	var drive = mods_folder.get_base_dir().replace("\\", "/").split("/")[0]
 	var launch_files = [
 		mods_folder.get_base_dir() + "/launch.bat",
-		OS.get_executable_path().get_base_dir() + "/Funkin.app"
+		mods_folder.get_base_dir().get_base_dir()+"/MacOS/Funkin"
 	]
 	
 	if OS.get_name() == "Windows":
